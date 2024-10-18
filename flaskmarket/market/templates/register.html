@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+    <body class="text-center">
+        
+    
+        <div class="container">
+            <form action="" method="POST" class="form-register" style="color:white">
+                <!-- Cross Validation Request Forgery -->
+
+                {{ form.hidden_tag() }}
+                <img src="{{ url_for('static', filename='Red-Shopping-Cart-PNG-Photo.png') }}" alt="Cart"> <br>
+                <h1 class="h3 mb-3 font-weight-normal">Create New Account</h1>
+                {{ form.username.label() }}
+                {{ form.username(class="form-control", placeholder="Username") }}
+                <br>
+                {{ form.email.label() }}
+                {{ form.email(class="form-control", placeholder="Email Address") }}
+                <br>
+                {{ form.password1.label() }}
+                {{ form.password1(class="form-control", placeholder="Password") }}
+                <br>
+                {{ form.password2.label() }}
+                {{ form.password2(class="form-control", placeholder="conferim Password") }}
+                <br>
+                {{form.submit(class="btn btn-lg btn-block btn-primary")}}
+
+                <!-- Go back to Login Page -->
+                <div class="checkbox mb-3">
+                    <h6>Already Have an Account?</h6>
+                    <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login In</a>
+                 </div>
+            </form>
+        </div>
+    </body>
+{% endblock %}
